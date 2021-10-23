@@ -5,7 +5,7 @@ app = Flask(__name__)
 PORT = 3000
 HOST = '0.0.0.0'
 
-@app.route("/")
+@app.route("/hello")
 def startService():
     return 'Hello World'
 
