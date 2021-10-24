@@ -7,7 +7,7 @@ import requests
 from bson import json_util
 
 load_dotenv(find_dotenv())
-app.config['MONGO_URI'] = os.getenv('MONGO_URI')
+app.config['MONGO_URI'] = os.environ.get('MONGO_URI', None)
 
 mongo = PyMongo(app)
 
