@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jorge Poveda</title>
+  </head>
+  <body>
+    <h1 class="code-line" data-line-start="0" data-line-end="1">
+      <a id="Desarrollo_Prueba_R5___Jorge_Poveda_0"></a>Desarrollo Prueba R5 _
+      Jorge Poveda
+    </h1>
+    <h2 class="code-line" data-line-start="3" data-line-end="4">
+      <a id="Tecnologias_3"></a>Tecnologias
+    </h2>
+    <p class="has-line-data" data-line-start="5" data-line-end="6">
+      Lista de tecnologias usadas en repositorio:
+    </p>
+    <ul>
+      <li class="has-line-data" data-line-start="7" data-line-end="8">
+        <a href="http://angularjs.org">Flask</a>
+      </li>
+      <li class="has-line-data" data-line-start="8" data-line-end="9">
+        <a href="https://www.python.org/">Python</a>
+      </li>
+      <li class="has-line-data" data-line-start="9" data-line-end="10">
+        <a href="https://docs.mongodb.com/manual/tutorial/getting-started/"
+          >mongoDB</a
+        >
+      </li>
+      <li class="has-line-data" data-line-start="10" data-line-end="11">
+        <a href="https://www.docker.com/">Docker</a>
+      </li>
+      <li class="has-line-data" data-line-start="11" data-line-end="13">
+        <a href="https://docs.python.org/3.6/library/asyncio.html">asyncio</a>
+      </li>
+    </ul>
+    <h2 class="code-line" data-line-start="13" data-line-end="14">
+      <a id="Endpoints_13"></a>Endpoints
+    </h2>
+    <p class="has-line-data" data-line-start="15" data-line-end="16">
+      A continuacion se encontrara la informacion de los endpoints desarrollados
+      en la prueba asignada.
+    </p>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Path</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>Method</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>/register</td>
+          <td>
+            Obtencion de session que permite el consumo de los demas endpoints
+          </td>
+          <td>
+            <a href="https://pruebar5jorgepoveda.ml/register"
+              >pruebar5jorgepoveda.ml/register</a
+            >
+          </td>
+          <td>GET</td>
+        </tr>
+        <tr>
+          <td>/books</td>
+          <td>Trae todos los libros registrados en la db interna</td>
+          <td>
+            <a href="https://pruebar5jorgepoveda.ml/books"
+              >pruebar5jorgepoveda.ml/books</a
+            >
+          </td>
+          <td>GET</td>
+        </tr>
+        <tr>
+          <td>/books/<code>{filter}</code>/<code>{value}</code></td>
+          <td>Realiza busqueda filtrada segun los parametros enviados</td>
+          <td>
+            <a href="https://pruebar5jorgepoveda.ml/books/title/la+tregua"
+              >pruebar5jorgepoveda.ml/books/title/la+tregua</a
+            >
+          </td>
+          <td>GET</td>
+        </tr>
+        <tr>
+          <td>/books/<code>{isbn}</code></td>
+          <td>
+            Elimina libros en la base de datos interna por identificador unico
+            para libros
+          </td>
+          <td>
+            <a href="https://pruebar5jorgepoveda.ml/books/9588912490"
+              >pruebar5jorgepoveda.ml/books/9588912490</a
+            >
+          </td>
+          <td>DELETE</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="code-line" data-line-start="24" data-line-end="25">
+      <a id="Filters_enabled_24"></a>Filters enabled
+    </h2>
+    <p class="has-line-data" data-line-start="26" data-line-end="27">
+      Lista de filtros disponibles no aplica case sensitive, solo en el envio
+      del value.
+    </p>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Filter</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>isbn</td>
+          <td>Se realiza la busqueda por identificador unico para libros</td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>Se realiza la busqueda por titulo</td>
+        </tr>
+        <tr>
+          <td>authors</td>
+          <td>Se realiza la busqueda por autor</td>
+        </tr>
+        <tr>
+          <td>category</td>
+          <td>Se realiza la busqueda por categoria</td>
+        </tr>
+        <tr>
+          <td>editor</td>
+          <td>Se realiza la busqueda por editorial</td>
+        </tr>
+      </tbody>
+    </table>
+    <h1 class="code-line" data-line-start="36" data-line-end="37">
+      <a id="Execute_36"></a>Execute
+    </h1>
+    <p class="has-line-data" data-line-start="38" data-line-end="39">
+      El proyecto fue realizado con Flask, como base de datos se utiliza
+      mongoDB, interconectado y dockerizado para una rapida inicializacion
+    </p>
+    <p class="has-line-data" data-line-start="40" data-line-end="41">
+      construccion de imagen:
+    </p>
+    <pre><code class="has-line-data" data-line-start="43" data-line-end="45" class="language-sh">docker-compose build
+</code></pre>
+    <p class="has-line-data" data-line-start="46" data-line-end="47">
+      ejecucion de proyecto:
+    </p>
+    <pre><code class="has-line-data" data-line-start="49" data-line-end="51" class="language-sh">docker-compose run 
+</code></pre>
+    <p class="has-line-data" data-line-start="51" data-line-end="52">
+      <code>or</code>
+    </p>
+    <pre><code class="has-line-data" data-line-start="53" data-line-end="55" class="language-sh">docker-compose run <span class="hljs-operator">-d</span>
+</code></pre>
+    <p class="has-line-data" data-line-start="57" data-line-end="58">
+      <strong>Desarrollado por: Jorge Poveda</strong>
+    </p>
+  </body>
+</html>

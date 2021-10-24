@@ -2,9 +2,13 @@ import asyncio
 from app import app
 from request import *
 from functions import *
-from flask import jsonify, request, Response, session
+from flask import jsonify, request, Response, session, render_template,make_response,redirect
 from datetime import timedelta
 from bson import json_util
+
+@app.route('/')
+def info_page():
+    return render_template('index.html')
 
 
 @app.route("/books/<filters>/<value>")
@@ -36,7 +40,11 @@ async def get_json():
     if session.get('api_key') == 'Registrado':
         books = await get_find()
         response = json_util.dumps(books)
-        return Response(response, mimetype="application/json")
+        if not response == '[]':
+            return Response(response, mimetype="application/json")
+        response = jsonify({'message': 'There are no books in the database'})
+        response.status_code = 200
+        return response
     return not_session()
 
 @app.route('/books/<isbn>', methods=['DELETE'])
@@ -52,7 +60,7 @@ async def delete_book(isbn):
         return response
     return not_session()
 
-@app.route("/resgister")
+@app.route("/register")
 def register():
     session['api_key'] = 'Registrado'
     session.permanent = True
@@ -73,11 +81,6 @@ def not_session(error=None):
 
 @app.errorhandler(404)
 def not_found(error=None):
-    message = {
-        'message': 'Resource Not Found ' + request.url,
-        'status': 404
-    }
-    response = jsonify(message)
-    response.status_code = 404
+    response = make_response(redirect('/'))
     return response
 
