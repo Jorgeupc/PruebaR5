@@ -1,11 +1,10 @@
 FROM python:3.8-alpine
 
-WORKDIR /app
+ENV APP_HOME /app
+WORKDIR $APP_HOME
 
 ADD . /app
 
 RUN pip install -r requirements.txt
-
-EXPOSE 3000
 
 CMD [ "python", "src/app.py" ]
