@@ -1,9 +1,10 @@
 FROM python:3.8-alpine
 
-ENV APP_HOME /app
-WORKDIR $APP_HOME
+EXPOSE 8080
 
-ADD . /app
+RUN mkdir /app
+WORKDIR /app
+COPY . /app/
 
 RUN pip install -r requirements.txt
 

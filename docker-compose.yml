@@ -1,26 +1,22 @@
 version: "3"
 
 services:
-  web:
-    env_file: .env
-  r5_api:
-    container_name: r5_api
-    restart: always
-    build: .
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    depends_on: 
+      - db
+    env_file:
+      - .env
     ports:
-      - "3200:3000"
-    links:
-      - mongodb
+      - 8080:8080
     volumes:
       - ".:/app"
-  mongodb:
-    container_name: mongodb
-    image: mongo
-    logging: 
-      driver: none
-    ports: 
-      - "27017:27017"
+    working_dir: /app
+  db:
+    image: mongo 
+    ports:
+      - 27017:27017
     volumes:
-      - "./mongodb/:/data/db"
-  volumes:
-      - ./webapp:/opt/webapp
+      - ./mongodb:/db

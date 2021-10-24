@@ -1,15 +1,8 @@
-import os
-from dotenv import load_dotenv, find_dotenv
-from app import app
+from app import mongo
 from functions import generate_query_google
-from flask_pymongo import PyMongo
 import requests
 from bson import json_util
 
-load_dotenv(find_dotenv())
-app.config['MONGO_URI'] =  'mongodb+srv://userApi:5gk7YnXp8TLbWXcQ@povedacloud.xq1os.mongodb.net/library?retryWrites=true&w=majority'
-
-mongo = PyMongo(app)
 
 async def consultDB(filters, value):
     value = value.replace("+", " ")
