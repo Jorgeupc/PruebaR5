@@ -1,6 +1,8 @@
 version: "3"
 
 services:
+  web:
+    env_file: .env
   r5_api:
     container_name: r5_api
     restart: always
@@ -20,3 +22,5 @@ services:
       - "27017:27017"
     volumes:
       - "./mongodb/:/data/db"
+  volumes:
+      - ./webapp:/opt/webapp
